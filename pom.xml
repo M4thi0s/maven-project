@@ -17,19 +17,36 @@
             <artifactId>maven-war-plugin</artifactId>
             <version>3.3.2</version> <!-- Mettez ici la version que vous souhaitez utiliser -->
         </plugin>
-        <!-- Autres plugins -->
-        <plugin>
-      <!-- le plugin pour démarrer TomEE depuis la ligne de commande avec maven : 
-          mvn package tomee:run
-      -->
-      <groupId>org.apache.tomee.maven</groupId>
-      <artifactId>tomee-maven-plugin</artifactId>
-      <version>8.0.9</version>
-      <configuration>
-        <tomeeVersion>8.0.9</tomeeVersion>
-        <tomeeClassifier>plus</tomeeClassifier>
-      </configuration>
-    </plugin>
+        <plugin
+          <!-- Autres plugins -->
+          <plugin>
+        <!-- le plugin pour démarrer TomEE depuis la ligne de commande avec maven : 
+            mvn package tomee:run
+        -->
+        <groupId>org.apache.tomee.maven</groupId>
+        <artifactId>tomee-maven-plugin</artifactId>
+        <version>8.0.9</version>
+        <configuration>
+          <tomeeVersion>8.0.9</tomeeVersion>
+          <tomeeClassifier>plus</tomeeClassifier>
+        </configuration>
+      </plugin>
     </plugins>
 </build>
+<reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.0.0</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
